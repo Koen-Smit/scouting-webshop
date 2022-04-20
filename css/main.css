@@ -28,6 +28,7 @@ header nav a{
     display: flex;
     justify-content: center;
     width: 100%;
+    padding-right:200px ;
 }
 
 /* body */
@@ -53,8 +54,40 @@ header nav a{
 footer{
     display: flex;
     justify-content: space-around;
+    background-color: green;
+    border: 1px solid black;
 }
 .footer-group{
     display: flex;
     flex-direction: column;
+}
+/* producten */
+.new-product{
+    border: 1px solid black;
+    padding: 20px;
+}
+.form-group{
+    padding: 10px;
+}
+.form-group input{
+    width: 30px;
+}
+/* Webshop */
+.all-products-row1{
+    display: flex;
+    justify-content: space-around;
+}
+.product-group{
+    text-align: center;
+    border: 1px solid black;
+    padding: 20px;
+}
+.product-group img {
+    width: 200px;
+
+}
+.all-products-row2{
+    display: flex;
+    justify-content: space-around;
+    margin: 150px 0px;
 }

@@ -16,18 +16,43 @@
             <img src="img/scoutingbanner.jpg" alt="banner-scouting">
         </div>
     <div class="wrapper">
+        <h2>Nieuwe producten</h2>
         <div class="new-product-wrapper">
             <div class="new-product">
                 <img src="img/scouting.jpg" alt="">
+                <form action="backend/backendController.php">
+                    <div class="form-group">
+                        <label for="product1">product1</label>
+                        <input type="number" name="product1" id="product1" min="0">
+                    </div>
+                    <input type="submit" name="submit" value="verzend-product">
             </div>
             <div class="new-product">
                 <img src="img/scouting.jpg" alt="">
+                <form action="backend/backendController.php">
+                    <div class="form-group">
+                        <label for="product2">product2</label>
+                        <input type="number" name="product2" id="product2" min="0">
+                    </div>
+                    <input type="submit" name="submit" value="verzend-product">
             </div>
             <div class="new-product">
                 <img src="img/scouting.jpg" alt="">
+                <form action="backend/backendController.php">
+                    <div class="form-group">
+                        <label for="product3">product3</label>
+                        <input type="number" name="product3" id="product3" min="0">
+                    </div>
+                    <input type="submit" name="submit" value="verzend-product">
             </div>
             <div class="new-product">
                 <img src="img/scouting.jpg" alt="">
+                <form action="backend/backendController.php">
+                    <div class="form-group">
+                        <label for="product4">product4</label>
+                        <input type="number" name="product4" id="product4" min="0">
+                    </div>
+                    <input type="submit" name="submit" value="verzend-product">
             </div>
         </div>
 
