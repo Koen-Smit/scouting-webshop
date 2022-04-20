@@ -5,7 +5,7 @@
     <div class="navigatie-top">    
     <nav>
         <a href="index.php">Home</a>
-        <a href="">Webshop</a>
+        <a href="webshop.php">Webshop</a>
         <a href="overzicht.php">Overzicht</a>
         <a href="">fdsfsfs</a>
     </nav>
