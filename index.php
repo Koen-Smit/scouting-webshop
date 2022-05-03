@@ -1,4 +1,4 @@
-
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,47 +15,36 @@
         <div class="banner">
             <img src="img/scoutingbanner.jpg" alt="banner-scouting">
         </div>
-    <div class="wrapper">
         <h2>Nieuwe producten</h2>
         <div class="new-product-wrapper">
-            <div class="new-product">
-                <img src="img/scouting.jpg" alt="">
-                <form action="backend/backendController.php">
-                    <div class="form-group">
-                        <label for="product1">product1</label>
-                        <input type="number" name="product1" id="product1" min="0">
-                    </div>
-                    <input type="submit" name="submit" value="verzend-product">
-            </div>
-            <div class="new-product">
-                <img src="img/scouting.jpg" alt="">
-                <form action="backend/backendController.php">
-                    <div class="form-group">
-                        <label for="product2">product2</label>
-                        <input type="number" name="product2" id="product2" min="0">
-                    </div>
-                    <input type="submit" name="submit" value="verzend-product">
-            </div>
-            <div class="new-product">
-                <img src="img/scouting.jpg" alt="">
-                <form action="backend/backendController.php">
-                    <div class="form-group">
-                        <label for="product3">product3</label>
-                        <input type="number" name="product3" id="product3" min="0">
-                    </div>
-                    <input type="submit" name="submit" value="verzend-product">
-            </div>
-            <div class="new-product">
-                <img src="img/scouting.jpg" alt="">
-                <form action="backend/backendController.php">
-                    <div class="form-group">
-                        <label for="product4">product4</label>
-                        <input type="number" name="product4" id="product4" min="0">
-                    </div>
-                    <input type="submit" name="submit" value="verzend-product">
-            </div>
+        <?Php 
+        
+        require_once "backend/conn.php";
+        $query = "SELECT * FROM  products";
+        $statement = $conn->prepare($query);
+        $statement->execute();
+        $products = $statement->Fetchall(PDO::FETCH_ASSOC); 
+        
+        foreach($products as $product)
+        { ?>
+                <div class="new-product">
+                    <img src="img/scouting.jpg" alt="">
+                    <form action="backend/backendController.php" method="POST">
+                        <div class="form-group">
+                            <input type="hidden" name="action" value="add">
+                            <input type ="hidden" name="product-id" value="<?php $product['id'];?>">
+                            <label for="product"><?php echo $product['name']?></label>
+                            <input type="number" name="amount" id="amount"  min="0" max="<?php echo $product['stock']; ?>">
+                        </div>
+                    <input type="submit" name="submit" value="Voeg-toe">
+                    </form>
+                </div>
+    
+                <?php  
+        }
+           ?>
         </div>
-
+    </div>
 </body>
-<?php require_once "footer.php"?>
+<?php require_once "footer.php";?>
 </html>

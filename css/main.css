@@ -48,6 +48,15 @@ header nav a{
 .new-product img{
     width: 200px;
 }
+/* Webshop */
+.all-product-wrapper{
+    display: flex;
+    justify-content: space-around;
+    margin: 50px 0px;
+}
+.product img{
+    width: 200px;
+}
 
 /* footer */
 
@@ -72,22 +81,4 @@ footer{
 .form-group input{
     width: 30px;
 }
-/* Webshop */
-.all-products-row1{
-    display: flex;
-    justify-content: space-around;
-}
-.product-group{
-    text-align: center;
-    border: 1px solid black;
-    padding: 20px;
-}
-.product-group img {
-    width: 200px;
 
-}
-.all-products-row2{
-    display: flex;
-    justify-content: space-around;
-    margin: 150px 0px;
-}
