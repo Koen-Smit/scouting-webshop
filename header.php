@@ -7,7 +7,12 @@
         <a href="index.php">Home</a>
         <a href="webshop.php">Webshop</a>
         <a href="overzicht.php">Overzicht</a>
-        <a href="">fdsfsfs</a>
+        <a href="cart.php">cart</a>
+        <?php if(isset($_SESSION['user_id'])): ?>
+            <a href="logout.php">Uitloggen</a>
+        <?php else: ?>
+            <a href="inlogpagina.php">Inloggen</a>
+        <?php endif; ?>
     </nav>
     </div>
 </header>
