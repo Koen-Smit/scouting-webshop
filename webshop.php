@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,80 +11,34 @@
 </head>
 <?php require_once "header.php"?>
 <body>
-    <div class="all-products-row1">
-        <div class="product-group">
-            <img src="img/scouting.jpg" alt="">
-            <form action="backend/backendController.php">
-                <div class="form-group">
-                    <label for="product1">product1</label>
-                    <input type="number" name="product1" id="product1" min="0">
+    <div class="wrapper">
+        <h2>Producten overzicht</h2>
+        <div class="all-product-wrapper">
+        <?Php 
+        
+        require_once "backend/conn.php";
+        $query = "SELECT * FROM  products";
+        $statement = $conn->prepare($query);
+        $statement->execute();
+        $products = $statement->Fetchall(PDO::FETCH_ASSOC); 
+        
+        foreach($products as $product)
+        { ?>
+                <div class="product">
+                    <img src="img/scouting.jpg" alt="">
+                    <form action="backend/backendController.php">
+                        <div class="form-group">
+                            <input type="hidden" name="action" value="add">
+                            <input type ="hidden" name="product-id" value="<?php $product['id'];?>">
+                            <label for="product1"><?php echo $product['name']?></label>
+                            <input type="number" name="amount"  min="0">
+                        </div>
+                        <input type="submit" name="submit" value="verzend-product">
                 </div>
-                <input type="submit" name="submit" value="verzend-product">
-        </div>
-        <div class="product-group">
-        <img src="img/scouting.jpg" alt="">
-            <form action="backend/backendController.php">
-                <div class="form-group">
-                    <label for="product1">product1</label>
-                    <input type="number" name="product1" id="product1" min="0">
-                </div>
-                <input type="submit" name="submit" value="verzend-product">
-        </div>
-        <div class="product-group">
-        <img src="img/scouting.jpg" alt="">
-            <form action="backend/backendController.php">
-                <div class="form-group">
-                    <label for="product1">product1</label>
-                    <input type="number" name="product1" id="product1" min="0">
-                </div>
-                <input type="submit" name="submit" value="verzend-product">
-        </div>
-        <div class="product-group">
-            <img src="img/scouting.jpg" alt="">
-            <form action="backend/backendController.php">
-                <div class="form-group">
-                    <label for="product1">product1</label>
-                    <input type="number" name="product1" id="product1" min="0">
-                </div>
-                <input type="submit" name="submit" value="verzend-product">
-        </div>
-    </div>
-    <div class="all-products-row2">
-        <div class="product-group">
-            <img src="img/scouting.jpg" alt="">
-            <form action="backend/backendController.php">
-                <div class="form-group">
-                    <label for="product1">product1</label>
-                    <input type="number" name="product1" id="product1" min="0">
-                </div>
-                <input type="submit" name="submit" value="verzend-product">
-        </div>
-        <div class="product-group">
-        <img src="img/scouting.jpg" alt="">
-            <form action="backend/backendController.php">
-                <div class="form-group">
-                    <label for="product1">product1</label>
-                    <input type="number" name="product1" id="product1" min="0">
-                </div>
-                <input type="submit" name="submit" value="verzend-product">
-        </div>
-        <div class="product-group">
-        <img src="img/scouting.jpg" alt="">
-            <form action="backend/backendController.php">
-                <div class="form-group">
-                    <label for="product1">product1</label>
-                    <input type="number" name="product1" id="product1" min="0">
-                </div>
-                <input type="submit" name="submit" value="verzend-product">
-        </div>
-        <div class="product-group">
-            <img src="img/scouting.jpg" alt="">
-            <form action="backend/backendController.php">
-                <div class="form-group">
-                    <label for="product1">product1</label>
-                    <input type="number" name="product1" id="product1" min="0">
-                </div>
-                <input type="submit" name="submit" value="verzend-product">
+            
+                <?php
+        }
+           ?>
         </div>
     </div>
     
