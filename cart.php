@@ -50,6 +50,16 @@ session_start();
     </tr>
     </tbody>
 </table>
+<form action="backend/backendcontroller.php" method="POST">
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email">
+        <input type="hidden" name="action" value="create">
+        <input type="hidden" name="status" value="0">
+        <input type="hidden" name="cart" value="<?php $_SESSION['cart']?>">
+    </div>
+    <input type="submit" value="Bestel">
+</form>
 
 
 

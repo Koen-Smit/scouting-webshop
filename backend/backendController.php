@@ -14,20 +14,30 @@ if ($action == "add")
     $product_id= $_POST['product-id'];
     $amount = $_POST['amount'];
     
-    
     if($amount == null || $amount == 0)
     {
         die("geen geldig getal gekozen");
     }
 
-    $_SESSION['cart']=
-    [
-        $product_id => $amount
-    ];
-    echo $amount;
-    // header("Location: ../index.php");
-
-
+    $_SESSION['cart'][$product_id] = $amount;
+    
+     header("Location: ../cart.php");
+}
+if ($action =="create")
+{   
+    $email=$_POST['email'];
+    $status = $_POST['status'];
+    $cart=$_POST['cart'];
+    $winkelwagen = json_encode($cart);
+    require_once "conn.php";
+    $query="INSERT INTO orders(status, email_recipient, producten) VALUES(:status, :email, :cart)";
+    $statement = $conn->prepare($query);
+    $statement->execute([
+       ":status" =>$status,
+       ":email" => $email, 
+       ":cart" => $winkelwagen
+    ]);
+    header("Location: ../overzicht.php");
 }
 
 ?>

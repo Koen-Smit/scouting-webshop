@@ -32,7 +32,7 @@
                     <form action="backend/backendController.php" method="POST">
                         <div class="form-group">
                             <input type="hidden" name="action" value="add">
-                            <input type ="hidden" name="product-id" value="<?php $product['id'];?>">
+                            <input type ="hidden" name="product-id" value="<?php echo $product['id'];?>">
                             <label for="product"><?php echo $product['name']?></label>
                             <input type="number" name="amount" id="amount"  min="0" max="<?php echo $product['stock']; ?>">
                         </div>
