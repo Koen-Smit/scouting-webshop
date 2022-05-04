@@ -82,3 +82,30 @@ footer{
     width: 30px;
 }
 
+/* cart */
+
+.cart{
+    display: flex;
+    justify-content: center;
+}
+.cart table{
+    width: 500px;
+    border: 1px solid black;
+}
+.cart table td{
+    text-align: center;
+
+}
+
+/* verzend-cart */
+.verzend-cart{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+.verzend-cart form{
+    width: 500px;
+    border: 1px solid black;
+    text-align: center;
+}
+
