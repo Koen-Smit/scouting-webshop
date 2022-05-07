@@ -12,7 +12,6 @@ session_start();
     <title>Document</title>
 </head>
 <?php require_once "header.php"; ?>
-
 <div class="cart">
 <table>
     <thead>
@@ -24,6 +23,12 @@ session_start();
             <th>Total Price</th>
         </tr>
     </thead>
+    <?php 
+    if(empty($_SESSION['cart']))
+    {
+        die;
+    }
+    ?>
     <tbody>
     <?php
         $totalPrice = 0;
