@@ -28,7 +28,7 @@
         foreach($products as $product)
         { ?>
                 <div class="new-product">
-                    <img src="img/scouting.jpg" alt="">
+                    <img src=<?php echo $product['img'];?> alt="">
                     <form action="backend/backendController.php" method="POST">
                         <div class="form-group">
                             <input type="hidden" name="action" value="add">
