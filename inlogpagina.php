@@ -11,16 +11,18 @@
 </head>
 <?php require_once "header.php" ?>
 <div class="wrapper">
-<form action="backend/loginController.php" method="POST">
-    <div class="form-group">
-        <label>Username</label>
-        <input type="text" name="username" id="username">
-    </div>
-    <div class="form-group">
-        <label>Password</label>
-        <input type="password" name="password" id="password">
-    </div>
-    <input type="submit" value="inloggen">
+    <div class="inlogdiv">
+        <form action="backend/loginController.php" method="POST">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="username" id="username" style="width: 100px;">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" id="password" style="width: 100px;">
+            </div>
+            <input type="submit" value="inloggen">
 
-</form>
+        </form>
+    </div>
 </div>
