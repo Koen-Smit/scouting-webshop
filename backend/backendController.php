@@ -28,14 +28,15 @@ if ($action =="create")
     $email=$_POST['email'];
     $status = $_POST['status'];
     $cart=$_POST['cart'];
-    $winkelwagen = json_encode($cart);
+    // $_SESSION[$cart] = json_encode($cart)    
+    $_SESSION['winkelwagen'] = json_encode($_SESSION['cart']);
     require_once "conn.php";
     $query="INSERT INTO orders(status, email_recipient, producten) VALUES(:status, :email, :cart)";
     $statement = $conn->prepare($query);
     $statement->execute([
        ":status" =>$status,
        ":email" => $email, 
-       ":cart" => $winkelwagen
+       ":cart" => $_SESSION['winkelwagen']
     ]);
     header("Location: ../overzicht.php");
 }

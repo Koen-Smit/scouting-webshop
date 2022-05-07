@@ -25,15 +25,16 @@
         foreach($products as $product)
         { ?>
                 <div class="product">
-                    <img src="img/scouting.jpg" alt="">
-                    <form action="backend/backendController.php">
+                    <img src=<?php echo $product['img'];?> alt="">
+                    <form action="backend/backendController.php" method="POST">
                         <div class="form-group">
                             <input type="hidden" name="action" value="add">
-                            <input type ="hidden" name="product-id" value="<?php $product['id'];?>">
+                            <input type ="hidden" name="product-id" value="<?php echo $product['id'];?>">
                             <label for="product1"><?php echo $product['name']?></label>
                             <input type="number" name="amount"  min="0">
                         </div>
                         <input type="submit" name="submit" value="verzend-product">
+                    </form>
                 </div>
             
                 <?php
