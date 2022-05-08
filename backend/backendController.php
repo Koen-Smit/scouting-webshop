@@ -21,24 +21,38 @@ if ($action == "add")
 
     $_SESSION['cart'][$product_id] = $amount;
     
-     header("Location: ../cart.php");
+     header("Location: ../webshop.php");
 }
 if ($action =="create")
 {   
     $email=$_POST['email'];
     $status = $_POST['status'];
     $cart=$_POST['cart'];
-    // $_SESSION[$cart] = json_encode($cart)    
+    $orderNumber = rand();
     $_SESSION['winkelwagen'] = json_encode($_SESSION['cart']);
     require_once "conn.php";
-    $query="INSERT INTO orders(status, email_recipient, producten) VALUES(:status, :email, :cart)";
+    $query="INSERT INTO orders(status, email_recipient, producten,order_number) VALUES(:status, :email, :cart, :order_number)";
     $statement = $conn->prepare($query);
     $statement->execute([
        ":status" =>$status,
        ":email" => $email, 
-       ":cart" => $_SESSION['winkelwagen']
+       ":cart" => $_SESSION['winkelwagen'],
+       ":order_number" => $orderNumber
     ]);
     header("Location: ../overzicht.php");
 }
+if ($action == "edit")
+{   
+    $id = $_POST['id'];
+    $status = $_POST['status'];
 
+    require_once "conn.php";
+    $query ="UPDATE orders SET status = :status WHERE id = :id ";
+    $statement = $conn->prepare($query);
+    $statement-> execute([
+        ":id" => $id,
+        ":status" => $status
+    ]);
+    header("Location: ../overzicht.php");
+}
 ?>
