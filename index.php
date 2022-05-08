@@ -39,7 +39,6 @@
                     <input type="submit" name="submit" value="Voeg-toe">
                     </form>
                 </div>
-    
                 <?php  
         }
            ?>
