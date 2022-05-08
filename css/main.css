@@ -97,6 +97,7 @@ footer{
 .cart table{
     width: 500px;
     border: 1px solid black;
+    background-color: green;
 }
 .cart table td{
     text-align: center;
@@ -113,10 +114,43 @@ footer{
     width: 500px;
     border: 1px solid black;
     text-align: center;
+    background-color: green;
 }
 
 /* inlogpagina */
 .inlogdiv{
     display: flex;
     justify-content: center;
+}
+
+/* overzicht */
+
+.overzicht-container{
+    display: flex;
+    justify-content: center;
+}
+.overzicht-container table{
+    border:1px solid black;
+    background-color: green;
+}
+.overzicht-container table td{
+    text-align: center;
+    padding: 10px 10px;
+}
+
+/* edit */
+
+.edit-container{
+    display: flex;
+    justify-content: center;
+}
+.edit-container form{
+    border: 1px solid black;
+    text-align: center;
+    padding:10px 10px;
+    background-color: green;
+}
+.edit-container .form-group{
+    text-align: left;
+
 }
