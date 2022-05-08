@@ -33,7 +33,7 @@
                             <label for="product1"><?php echo $product['name']?></label>
                             <input type="number" name="amount"  min="0">
                         </div>
-                        <input type="submit" name="submit" value="verzend-product">
+                        <input type="submit" name="submit" value="Voeg toe">
                     </form>
                 </div>
             
